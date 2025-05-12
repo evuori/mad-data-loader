@@ -1,6 +1,6 @@
-# Confluence to Azure Search Data Ingestion
+# MAD Data Loader
 
-A data ingestion application that fetches content from Confluence, processes it, and indexes it in Azure Search for advanced search capabilities.
+Machine Assisted Development (MAD) data ingestion application that fetches content from Confluence, processes it, and indexes it in Azure Search for advanced search capabilities.
 
 ## Features
 
@@ -164,16 +164,23 @@ The application uses a JSON configuration file to manage pages and spaces to pro
 ```json
 {
   "pages": {
-    "5296685148": {
-      "name": "Business Requirements for Project WSC",
+    "<PAGE_ID>": {
+      "name": "Name of the Business requirements document",
       "enabled": true,
       "type": "ABRD",
-      "project": "WSC"
+      "project": "<PROJECT_CODE>"
+    },
+    {
+    "<CONFLUENCE_PAGE_ID>": {
+      "name": "Name of the feature requirements document",
+      "enabled": true,
+      "type": "FBRD",
+      "project": "<PROJECT_CODE>"
     }
   },
   "spaces": {
-    "AJODMS": {
-      "name": "AJODMS",
+    "<CONFLUENCE_SPACE_ID>": {
+      "name": "Name of the confluence space",
       "enabled": true,
       "description": "Main documentation space"
     }
