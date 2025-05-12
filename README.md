@@ -1,6 +1,6 @@
 # MAD Data Loader
 
-Machine Assisted Development (MAD) data ingestion application that fetches content from Confluence, processes it, and indexes it in Azure Search for advanced search capabilities.
+Data ingestion module for Machine Assisted Development (MAD). This module fetches content from Confluence, processes it, and indexes it in Azure Search for advanced search capabilities.
 
 ## Features
 
