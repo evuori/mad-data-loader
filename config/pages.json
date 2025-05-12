@@ -1,0 +1,23 @@
+{
+  "pages": {
+    "5296685148": {
+      "name": "HRMS Business Requirements Document",
+      "enabled": true,
+      "type": "ABRD",
+      "project": "WSC"
+    },
+    "5303042060": {
+      "name": "Order Management Requirements Document",
+      "enabled": true,
+      "type": "FBRD",
+      "project": "WSC"
+    }
+  },
+  "spaces": {
+    "AJODMS": {
+      "name": "AJODMS",
+      "enabled": true,
+      "description": "Main documentation space"
+    }
+  }
+} 
