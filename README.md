@@ -7,6 +7,8 @@ Data ingestion module for Machine Assisted Development (MAD). This module fetche
 - Fetch specific pages or entire spaces from Confluence
 - Parse and extract document metadata from structured tables
 - Handle different document types (ABRD, FBRD)
+  - Application Business Requirements Document (ABRD)
+  - Feature Business Requirements Document (FBRD)
 - Split content into searchable sections based on headings
 - Convert HTML content to well-structured Markdown
 - Extract and index requirement IDs (e.g., FR-001, PR-001)
