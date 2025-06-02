@@ -24,19 +24,19 @@ Data ingestion module for Machine Assisted Development (MAD). This module fetche
 
 1. Clone this repository
 2. Create a virtual environment:
-   ```
-   python -m venv venv
-   source venv/bin/activate  # On Windows, use venv\Scripts\activate
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows, use .venv\Scripts\activate
    ```
 3. Install dependencies:
-   ```
+   ```bash
    pip install -r requirements.txt
    ```
 
 ## Configuration
 
 1. Copy `env.template` to `.env`:
-   ```
+   ```bash
    cp env.template .env
    ```
 2. Edit `.env` and fill in your Confluence and Azure Search credentials
@@ -50,58 +50,77 @@ Data ingestion module for Machine Assisted Development (MAD). This module fetche
 
 ## Usage
 
-### Process a specific page
+There are two ways to run the application:
 
-```
-python src/main.py --page-id 123456
+### Option 1: Using the convenience script (Recommended)
+
+Run from the project root directory:
+
+```bash
+# Activate virtual environment
+source .venv/bin/activate
+
+# Process a specific page
+python run.py --page-id 123456
+
+# Process all pages in a space
+python run.py --space-key MYSPACE
+
+# Process all configured pages
+python run.py --process-all
 ```
 
-### Process all pages in a space
+### Option 2: Running from src directory
 
-```
-python src/main.py --space-key MYSPACE
-```
+```bash
+# Navigate to src directory and activate environment
+cd src
+source ../.venv/bin/activate
 
-### Process all configured pages
+# Process a specific page
+python main.py --page-id 123456
 
-```
-python src/main.py --process-all
+# Process all pages in a space
+python main.py --space-key MYSPACE
+
+# Process all configured pages
+python main.py --process-all
 ```
 
 ### Enable AI Summarization
 
 To process a page with AI-generated summaries:
 
-```
-ENABLE_SUMMARIZATION="true" python src/main.py --page-id 123456
+```bash
+ENABLE_SUMMARIZATION="true" python run.py --page-id 123456
 ```
 
 Or set `ENABLE_SUMMARIZATION="true"` in your `.env` file.
 
 ### Page Configuration Management
 
-```
+```bash
 # List all configured pages and spaces
-python src/main.py --list-pages
+python run.py --list-pages
 
 # Add a page to configuration
-python src/main.py --add-page 123456 --page-name "My Document"
+python run.py --add-page 123456 --page-name "My Document"
 
 # Remove a page from configuration
-python src/main.py --remove-page 123456
+python run.py --remove-page 123456
 ```
 
 ### Cache Management
 
-```
+```bash
 # Show cache statistics
-python src/main.py --cache-status
+python run.py --cache-status
 
 # Clear the cache
-python src/main.py --clear-cache
+python run.py --clear-cache
 
 # Force reindex a page (ignores cache)
-python src/main.py --page-id 123456 --force-reindex
+python run.py --page-id 123456 --force-reindex
 ```
 
 ### Additional options
@@ -128,6 +147,7 @@ python src/main.py --page-id 123456 --force-reindex
 │   └── utils/         # Utility functions
 ├── tests/             # Unit and integration tests
 ├── docs/              # Documentation
+├── run.py             # Convenience script to run from project root
 ├── env.template       # Template for environment variables
 ├── requirements.txt   # Python dependencies
 └── README.md          # This file
